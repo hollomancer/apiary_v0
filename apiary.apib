@@ -10,12 +10,12 @@ This version of the API enables remote payment and some remote connect/disconnec
 All API requests are authenticated using the "Authentication-Token" header. In the code samples, replace 'your_auth_token' with the token you obtain from below.
 
 ### Obtaining a token:
-In your ThunderCloud, navigate to a vendor's information page. In the "Information" box, click "View credentials" under API Credentials.
+In your ThunderCloud, navigate to a sales account's information page. In the "Information" box, click "View credentials" under API Credentials.
 In the popup window appearing, you will find an authentication token under "API token". Copy it and give it to the trusted person/service who will be consuming the API.
-This token gives access to every API Call, including creating transactions using this vendor's account. 
-Tokens are reset if the User's settings are changed.
+This token gives access to every API Call, including creating transactions using this sales account. 
+Tokens are reset if the user's settings are changed.
 
-You need to be signed in with Operator privileges to obtain a token on a vendor account.
+You need to be signed in with Operator privileges to obtain a token on a sales account.
 
 ### Missing or invalid token
 
@@ -31,7 +31,7 @@ You need to be signed in with Operator privileges to obtain a token on a vendor 
             }        
 
 ## Encoding
-All API requests and responses should be encoded are encoded with UTF-8, which is required by the JSON standard.
+All API requests and responses that should be encoded are encoded with UTF-8, which is required by the JSON standard.
 Consumers of the API need to convert between UTF-8 and their desired encoding.
 
 ## Endpoint
@@ -93,7 +93,7 @@ In order to enter a mobile transaction in the SparkMeter system, you need:
 + the code of the customer concerned by the transaction. This code is defined by the system owner and should be unique. It can be found and defined on the customer page.
 + optionally, an external id for the transaction to be placed in the system. This id is defined and provided by the API consumer, and has to be unique.
 
-The transaction will be placed from the account of the vendor matching the token used, to the customer matching the code provided.
+The transaction will be placed from the sales account matching the token used, to the customer matching the code provided.
 
 ### Step-by-step
 
@@ -287,7 +287,7 @@ This call creates a transaction in the SparkMeter system, from the vendor matchi
 
 The customer must be referenced by its internal id, which can be obtained from a **Customer Info** call.
 
-Optionally, an external identifier can be given as an argument. This id needs to be unique - a transaction with an external id that has already be used in th past will be refused. It can be used later to gather the status of the transaction once it has been placed.
+Optionally, an external identifier can be given as an argument. This id needs to be unique - a transaction with an external id that has already be used in the past will be refused. It can be used later to gather the status of the transaction once it has been placed.
 
 *Typical use case*: Automatically insert mobile money transactions in the SparkMeter system. 
 
